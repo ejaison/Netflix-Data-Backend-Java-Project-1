@@ -19,7 +19,7 @@ public class NetflixMain {
 		NetflixShow netflixshow2 = new NetflixShow("2022-09-04", "Films (English)", 1, "Me Time", "N/A", 56560000, 2);
 		NetflixShow netflixshow3 = new NetflixShow("2022-09-04", "Films (English)", 2, "Love in the Villa", "N/A", 41220000 , 1);
 		NetflixShow netflixshow4 = new NetflixShow("2022-09-04", "Films (English)", 3, "I Came By", "N/A", 30790000, 1);		
-		//testing toString methods of Product.java
+		//testing toString methods of Shows
 		System.out.println(netflixshow1.toString());
 		System.out.println(netflixshow2.toString());
 		//all good here
@@ -40,46 +40,40 @@ public class NetflixMain {
 		collection.addNetflixShow(netflixshow3);
 		collection.addNetflixShow(netflixshow4);
 		System.out.println(collection.toString());
-		//all good here
-
-		//testing retrieveShow method
-		System.out.println("retrieving");
-		System.out.println(collection.retrieveNetflixShow("Me Time"));
-		//working
 
 		//testing removeShow method
 		System.out.println("removing");
 		collection.removeNetflixShow("Me Time");
 		System.out.println(collection.toString());
-		//all good
+
+		//testing retrieveShow method
+		System.out.println("retrieving");
+		System.out.println(collection.retrieveNetflixShow("Me Time"));
 
 		//testing retrieveCollection method
 		netflixshow1.setShowTitles("I Love You");
 		System.out.println("retrieving collection");
 		System.out.println(collection.retrieveCollection("I Love You"));
-		//logic error
-
-		//testing showUpdate method
-		System.out.println("updating viewers");
-		collection.showUpdate("Me Time", 76560000);
-		System.out.println(collection.toString());
-		//all good
-
-		//testing apply new ranks method
-		System.out.println("applying new ranks");
-		netflixshow1.setShowcummulativeRanks(3);
-		System.out.println(collection.applyRanks(3));
-		//works
 
 		//testing showSuggestion
 		System.out.println("suggesting a show");
-		System.out.println(collection.netflixShowSuggestion("I Came By"));
+		System.out.println(collection.netflixShowSuggestion("Films (English)"));
+
+		//testing showUpdate method
+		System.out.println("updating viewers");
+		collection.showUpdate("Me Time", 46560000);
+		System.out.println(collection.toString());
 
 		//testing the writeFile method
-		NetflixShowCollection testRead_File = new NetflixShowCollection("./pointOfSale/data.txt");
+		NetflixShowCollection testRead_File = new NetflixShowCollection(".netflixAllWeeksGlobalProcessed.txt");
 		//testRead_File.writeFile(testRead_File.get_fileName());
 
-		// testing the iterator
+		// testing getCatagories
+		System.out.println("\ntesting and getting all the list from the document");
+		ArrayList<String> read = testRead_File.getCatagories();
+		System.out.println(read);
+
+		// testing the iterator method
 		System.out.println("\ntesting iterator");
 		Iterator<NetflixShow> iter = testRead_File.getIterator();
 		while (iter.hasNext()) {
@@ -87,12 +81,7 @@ public class NetflixMain {
 		}
 		System.out.println();
 
-		// testing getCatagories
-		System.out.println("\ntesting and getting all the list from the document");
-		ArrayList<String> read = testRead_File.getCatagories();
-		System.out.println(read);
-
-		testRead_File.writeFile("./pointOfSale/testwrite.txt");
+		testRead_File.writeFile("./netflixshow/testwrite.txt");
 	}
 
 }

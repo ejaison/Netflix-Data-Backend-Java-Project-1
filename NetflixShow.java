@@ -106,10 +106,30 @@ public class NetflixShow {
 
 	//method to allow removeShow to remove a show
 	public boolean equals(Object o) {
-		//first type casts 'Object o' to a 'NetflixShow'
-		//then compares by name
-		//returns true if names match
 		return ((NetflixShow)o).getShowTitles() == this.showseasonTitle;
+	}
+	//return true or false if the show equals with the week
+	public boolean equals (NetflixShow noy) {
+		if (noy.showWeek.equals(showWeek) 
+				&& noy.showTitles.equals(showTitles))
+			return true;
+		return false;
+	}
+	// compare the ranks if weekly rank is greater than cummulative rank 
+	public int compareTo(NetflixShow gel) {
+		if (showWeek.compareTo(gel.getShowWeek()) < 0){
+			return -1;
+		}
+		if (showWeek.compareTo(gel.getShowWeek()) > 0){
+			return 1;
+		}
+		if (showTitles.compareTo(gel.getShowTitles()) < 0){
+			return -1;
+		}
+		if (showTitles.compareTo(gel.getShowTitles()) > 0){
+			return 1;
+		}		
+		return 0;
 	}
 
 }
