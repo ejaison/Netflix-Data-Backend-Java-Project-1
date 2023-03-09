@@ -1,8 +1,6 @@
-//Eric Jaison 
-//Netflix Gui 
-//Java - CSCI 3381
-//Dr. Doderer
-//Oct 18, 2022
+//Eric 
+//Netflix Data Backend 
+//Java
 
 package project1;
 
